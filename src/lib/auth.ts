@@ -10,7 +10,10 @@ export const validateRoute = (handler: any) => {
       let user;
 
       try {
-        const { id } = jwt.verify(token, "process.env.JWT_SECRET");
+        const { id } = jwt.verify(token, "process.env.JWT_SECRET") as {
+          id: number;
+        };
+
         user = await prisma.user.findUnique({ where: { id } });
         if (!user) {
           return res.status(401).json({ message: "Not authorized" });

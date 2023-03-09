@@ -20,7 +20,7 @@ export default function Register() {
         password: passwordRef.current?.value,
       })
       .then(() => {
-        router.push("/auth/login");
+        router.push("/");
       })
       .catch((err) => {
         console.log(err.response.data);
@@ -56,7 +56,7 @@ export default function Register() {
             ref={passwordRef}
           />
           <button type="submit">Register</button>
-          <Link href="/auth/login"> Back to Login </Link>
+          <Link href="/"> Back to Login </Link>
         </form>
       </article>
     </div>
